@@ -1,0 +1,41 @@
+ion-content {
+    --background: linear-gradient(to right, #fd6464 50%, #3be5fe 50%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transform: scale(0.5); /* Comienza con una escala de 0 */
+    animation: slideInRight 0.5s ease-out forwards;
+    animation-delay: 2s; /* Retraso de 2 segundos antes de iniciar la animación */
+}
+
+.container img {
+    max-width: 100%;
+    width: 300px;
+    transform: scale(0.5);
+    z-index: 2;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5)); /* Aplica sombra que sigue el contorno de la imagen */
+}
+
+
+.text {
+    font-weight: bold;
+    color: white; /* Ajusta el color según tu diseño */
+    font-size: 40px; /* Ajusta el tamaño de fuente según necesites */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Sombra para el texto */
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
