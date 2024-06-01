@@ -30,6 +30,18 @@ const routes: Routes = [
   {
     path: 'feas',
     loadChildren: () => import('./views/cosas/feas/feas.module').then( m => m.FeasPageModule)
+  },
+  {
+    path: 'stats-lindas',
+    loadChildren: () => import('./views/stats-lindas/stats-lindas.module').then( m => m.StatsLindasPageModule)
+  },
+  {
+    path: 'stats-feas',
+    loadChildren: () => import('./views/stats-feas/stats-feas.module').then( m => m.StatsFeasPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./views/perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
 
