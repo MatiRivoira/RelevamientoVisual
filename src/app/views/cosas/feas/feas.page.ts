@@ -44,7 +44,7 @@ export class FeasPage implements OnInit, OnDestroy {
     this.isLoading = true; // Activa isLoading mientras se toma y carga la foto
     
     try {
-      this.datosfoto = await this.photoService.takePhoto("lindas");
+      this.datosfoto = await this.photoService.takePhoto("feas");
     } catch (error) {
       console.error("Error al tomar la foto:", error);
     } finally {

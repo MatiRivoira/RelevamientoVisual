@@ -23,7 +23,7 @@ export class StatsFeasPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-    this.firestore.getDocuments('lindas').subscribe((data)=>{
+    this.firestore.getDocuments('feas').subscribe((data)=>{
       this.photosData = data;
       this.likesData = this.photosData.map((photo:any) => {
           return photo.votes;
@@ -117,5 +117,4 @@ export class StatsFeasPage implements OnInit, OnDestroy {
       },
     });
   }
-
 }

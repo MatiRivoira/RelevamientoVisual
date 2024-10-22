@@ -123,12 +123,16 @@ input.input-error::placeholder {
 }
 
 .box-users {
-    margin-top: 10px;
+    position: absolute;
     display: flex;        /* Activa Flexbox para el contenedor de botones */
     justify-content: center; /* Centra los botones horizontalmente */
     align-items: center;     /* Alinea los botones verticalmente en el centro */
-    width: 100%; 
-
+    background-color: white !important;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px 10px 0px 0px;
+    bottom: 40px;
+    
     button {
         display: flex; /* Flexbox para alinear el contenido */
         align-items: center; /* Alineación vertical centrada */
@@ -136,9 +140,9 @@ input.input-error::placeholder {
         text-align: center; /* Asegura el texto centrado, útil para cuando el texto está en múltiples líneas */
         color: white;
         border: none;
-        background: none !important;
         font-size: small;
         margin: 0px 10px;
+        background-color: white !important;
 
         span {
             font-weight: bold;
@@ -147,9 +151,9 @@ input.input-error::placeholder {
             color: #313131; /* Hace que el texto sea transparente para mostrar el degradado */
         }
 
-        svg {
-            fill: currentColor; /* Asegura que el SVG use el color del texto (degradado) */
-            margin-right: 5px;
+        i {
+            color: #313131;
+            font-size: 30px;
         }
     }
 }
@@ -160,6 +164,11 @@ input.input-error::placeholder {
     align-items: center;
     text-align: center;
     justify-content: center;
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    
+    border-radius: 0px 0px 10px 10px;
 }
 
 .spinner-container {
@@ -209,4 +218,17 @@ input.input-error::placeholder {
         stroke-dasharray: 90, 150;
         stroke-dashoffset: -124;
     }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideInFromTop 0.3s ease-out forwards;
 }

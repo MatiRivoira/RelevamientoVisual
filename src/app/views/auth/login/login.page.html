@@ -19,52 +19,44 @@
       <h1>Iniciar sesión</h1>
       <div *ngIf="errMsg" class="err-msg-top"> {{errMsg}} </div>
       <div class="input-box">
-        <input type="text" placeholder="Correo Electronico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}">
+        <input type="text" placeholder="Correo Electrónico" [(ngModel)]="email" [ngClass]="{'input-error': errorStates.email}" style="border-radius: 10px 10px 0px 0px;">
         <i class='bx bxs-envelope' [ngClass]="{'icon-error': errorStates.email}"></i>      
       </div>
       <div *ngIf="errMsgemail" class="err-msg" style="margin-bottom: -10px;">{{errMsgemail}}</div>
       <div class="input-box">
-        <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="password" [ngClass]="{'input-error': errorStates.password}">
-        <i [class]='showPassword ? "bx bxs-lock-open" : "bx bxs-lock-alt"' (click)="togglePasswordVisibility()" [ngClass]="{'icon-error': errorStates.password}" style="cursor: pointer;"></i>
-      </div>
+        <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="password" [ngClass]="{'input-error': errorStates.password}" style="border-radius: 0px;">
+        <i [class]='showPassword ? "bx bxs-show" : "bx bxs-hide"' 
+        (click)="togglePasswordVisibility()" 
+        [ngClass]="{'icon-error': errorStates.password}" 
+        style="cursor: pointer;"></i>      </div>
       <div *ngIf="errMsgPassword" class="err-msg"> {{errMsgPassword}} </div>
       <div class="clear-btn" (click)="limpiar()">Limpiar</div>
-      <button type="submit" class="btn" (click)="login()">Iniciar sesión</button>
+      <button type="submit" class="btn" (click)="login()" style="border-radius: 0px 0px 10px 10px;">Iniciar sesión</button>
       <p>No tienes cuenta? <span (click)="registrar()">Registrate</span></p>
     </div>
-    <div *ngIf="showUsers" class="box-users">
-      <button (click)="autoFillUser('user1')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-        </svg>
-        <span>User 1</span>
-      </button>
-      <button (click)="autoFillUser('user2')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-        </svg>
-        <span>User 2</span>
-      </button>
-      <button (click)="autoFillUser('user3')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-          <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-        </svg>
-        <span>User 3</span>
-      </button>
+    <div style="width: 100%;  display: flex;        /* Activa Flexbox para el contenedor de botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center;     /* Alinea los botones verticalmente en el centro */
+    margin-top: 45px;">
+      <div *ngIf="showUsers" class="box-users slide-in">
+          <button (click)="autoFillUser('user1')">
+              <i class='bx bxs-user-badge'></i>
+              <span>1</span>
+          </button>
+          <button (click)="autoFillUser('user2')">
+              <i class='bx bxs-user-badge'></i>
+              <span>2</span>
+          </button>
+          <button (click)="autoFillUser('user3')">
+              <i class='bx bxs-user-badge'></i>
+              <span>3</span>
+          </button>
+      </div>
     </div>
-    <span (click)="toggleUsersVisibility()" class="btnMostrarUsers">
-      @if (showUsers) {
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-up" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894z"/>
-        </svg>
-      } @else {
-        <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"/>
-        </svg>
-      }
-    </span>
+    <div style="width: 100%; align-items: center; text-align: center; display: flex; justify-content: center; position: absolute; bottom: 10px; left: 0;">
+      <span (click)="toggleUsersVisibility()" class="btnMostrarUsers">
+        Acceso rápido
+      </span>
+    </div>
   </div>
 </ion-content>

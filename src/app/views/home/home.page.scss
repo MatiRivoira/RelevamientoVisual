@@ -37,6 +37,34 @@ ion-content {
   height: 50px; /* Proporciona una altura fija al botón, ajusta según sea necesario */
   
   i {
+    font-size: 30px;
     margin-right: 2px; /* Espacio opcional a la derecha del ícono */
   }
+
+}
+
+.perfil-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;  /* Posiciona el inicio del botón en el centro */
+  transform: translateX(-50%); /* Desplaza el botón hacia atrás en un 50% de su ancho para centrar exactamente */
+  display: flex; /* Utiliza Flexbox para la alineación del contenido */
+  justify-content: center; /* Centra el contenido horizontalmente dentro del contenedor */
+  align-items: center; /* Centra el contenido verticalmente dentro del contenedor */
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%; /* Opcional: asegura que el botón tenga el ancho total si es necesario */
+  height: 50px; /* Proporciona una altura fija al botón, ajusta según sea necesario */
+
+  svg {
+    margin-right: 2px; /* Espacio opcional a la derecha del ícono */
+  }
+  
+}
+
+.right-content {
+  display: flex; /* Utiliza Flexbox para la alineación del contenido */
+  text-align: center;
+  justify-content: center; /* Centra el contenido horizontalmente dentro del contenedor */
+  align-items: center; /* Centra el contenido verticalmente dentro del contenedor */
 }

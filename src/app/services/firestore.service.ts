@@ -1,7 +1,7 @@
 // src/app/services/firestore.service.ts
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +34,23 @@ export class FirestoreService {
   // Delete a document by ID
   deleteDocument(collection: string, id: string): Promise<void> {
     return this.firestore.collection(collection).doc(id).delete();
+  }
+
+  
+  // Search document by restriction
+  getDocumentsWhere(collection: string, field: string, value: any): Observable<any[]> {
+    let collectionRef: AngularFirestoreCollection<any> = this.firestore.collection(collection);
+    if (field && value) {
+      collectionRef = this.firestore.collection(collection, ref => ref.where(field, '==', value));
+    }
+    return collectionRef.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
   }
 }

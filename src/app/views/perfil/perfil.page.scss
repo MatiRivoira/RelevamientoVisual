@@ -1,0 +1,111 @@
+ion-content {
+    --background: url("../../../assets/img/backgroundSimple.webp") no-repeat center center / cover;
+    height: 100vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+header {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+
+    h1 {
+        margin: 0px;
+    }
+
+    button {
+        background-color: transparent;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.3);
+}
+
+.header-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photos-container {
+    padding-top: 52.43px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjusts space distribution */
+    margin: 0; /* Removes margin around the container */
+    padding: 0; /* Removes padding within the container */
+}
+
+/* Adjust each photo item */
+.photo-item {
+    flex: 1 1 33%; /* Allows each item to grow and shrink but base at 33% */
+    max-width: 33%; /* Maximum width of each photo item */
+    margin: 0; /* Remove margin around each photo item */
+    padding: 0; /* Remove padding inside each photo item */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    margin-bottom: 3px;
+}
+
+/* Ensure images are fully stretched */
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes any extra space below the image */
+}
+
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.3);
+}
+
+.spinner {
+    animation: rotate 2s linear infinite;
+    width: 100%;
+    height: 100%;
+}
+
+.path {
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}

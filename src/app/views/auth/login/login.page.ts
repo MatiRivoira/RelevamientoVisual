@@ -57,7 +57,9 @@ export class LoginPage implements OnInit {
       this.firebaseSvc
         .singIn({ email: this.email, password: this.password })
         .then((res:any) => {
-          console.log(res);
+          this.email = "";
+          this.password = "";
+          this.showUsers = false;
           this.nurSvc.esperarYRedirigir('userdata', JSON.stringify(res), '/home');
         })
         .catch((err:any) => {

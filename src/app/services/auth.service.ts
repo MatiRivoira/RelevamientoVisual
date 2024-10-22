@@ -32,7 +32,6 @@ export class AuthService {
       return sendPasswordResetEmail(getAuth(), email);
   }
 
-  
   getUser() {
     return JSON.parse(localStorage.getItem('userdata') || "{}");
   }
